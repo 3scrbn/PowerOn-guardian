@@ -1,0 +1,12 @@
+The binary is only for Windows.
+
+Modify the values in the source code as you desire. This values are:
+    -The amount of time needed to take action. This is the period of time since the last "clean shutdown" event log.
+    -The actions you want to be performed by this binary when the execution takes action. Ex: delete logs, directories, delete shadow copies, logs... 
+ 
+Compile the program:
+    go build -ldflags="-s -w" -trimpath -o guardian.exe main.go 
+This command is for compile the binary for Windows in a Windows machine.
+
+Now you can create a schedule task that runs the binary when the machine is booting. Is recommended to run it with admin privileges, if not, some actions (as execute some commands, delete logs...) could not work. 
+It's possible to execute it before the user login.
